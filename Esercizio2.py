@@ -13,4 +13,4 @@ def sum_csv(file_name):
         somma=somma+element
     return somma
 result=sum_csv('shampoo_sales.csv')
-print('somma del file:{}'.format(result))
+#print('somma del file:{}'.format(result))
