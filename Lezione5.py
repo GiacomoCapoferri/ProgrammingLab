@@ -34,7 +34,7 @@ class CSVFile():
         return list
 
 class NumericalCSVFile(CSVFile):
-    def num_get_data(self):
+    def get_data(self):
         try:
             num_list = super().get_data()
             for line in num_list:
@@ -45,4 +45,4 @@ class NumericalCSVFile(CSVFile):
              
 
 #csvfile=NumericalCSVFile('shampoo_sales.csv')
-#print(csvfile.num_get_data())
+#print(csvfile.get_data())
