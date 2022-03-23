@@ -35,15 +35,23 @@ class CSVFile():
 
 class NumericalCSVFile(CSVFile):
     def get_data(self):
+        
+        #inizializzo la lista con valori numerici float
         num_list=[]
+
+        #inizializzo la lista con valori stringa (risultato del get data padre)
         str_list = super().get_data()
+
+        #ciclo su ogni riga
         for line in str_list:
+            #faccio le mie operazioni
             try:
                 line[1]=float(line[1])
                 num_list.append(line)
-        
+            #se ho errore lo segnalo con un print
             except Exception as err:
                 print ('Ho avuto questo Errore: "{}"'.format(err))
+        #restituisco tutta la lista con valori float e bonificata di valori sporchi
         return num_list
 
 csvfile=NumericalCSVFile('shampoo_sales.csv')
