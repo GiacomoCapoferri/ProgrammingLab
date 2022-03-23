@@ -35,14 +35,16 @@ class CSVFile():
 
 class NumericalCSVFile(CSVFile):
     def get_data(self):
-        try:
-            num_list = super().get_data()
-            for line in num_list:
+        num_list=[]
+        str_list = super().get_data()
+        for line in str_list:
+            try:
                 line[1]=float(line[1])
-            return num_list
-        except Exception as err:
-            print ('Ho avuto questo Errore: "{}"'.format(err))
-             
+                num_list.append(line)
+        
+            except Exception as err:
+                print ('Ho avuto questo Errore: "{}"'.format(err))
+        return num_list
 
-#csvfile=NumericalCSVFile('shampoo_sales.csv')
-#print(csvfile.get_data())
+csvfile=NumericalCSVFile('shampoo_sales.csv')
+print(csvfile.get_data())
