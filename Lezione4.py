@@ -22,5 +22,5 @@ class CSVFile():
                 list.append(elements)
         return list
 
-csvfile=CSVFile('shampoo_sales.csv')
-print(csvfile.get_data())
+#csvfile=CSVFile('shampoo_sales.csv')
+#print(csvfile.get_data())
