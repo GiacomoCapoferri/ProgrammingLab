@@ -12,6 +12,10 @@ class CSVFile():
     
     #definisco metodo per che torni dati csv come lista di liste
     def get_data(self, start, end):
+        
+        self.start = 3  
+        self.stop = 7
+        
         #inizializzo lista
         list = []
 
@@ -27,7 +31,7 @@ class CSVFile():
 
         #se il file è leggibile
         if file_leggibile: 
-            for line in my_file:
+            for line in range(self.start,self.stop,1):
                 elements = line.split(',')
                 #elimino l'ultimo elemento che mi da \n
                 elements[-1] = elements[-1].strip()
@@ -38,7 +42,7 @@ class CSVFile():
         return list
 
 class NumericalCSVFile(CSVFile):
-    def get_data(self):
+    def get_data():
         
         #inizializzo la lista con valori numerici float
         num_list=[]
@@ -58,5 +62,5 @@ class NumericalCSVFile(CSVFile):
         #restituisco tutta la lista con valori float e bonificata di valori sporchi
         return num_list
 
-csvfile=NumericalCSVFile(12345)
+csvfile=NumericalCSVFile('shampoo_sales.csv')
 print(csvfile.get_data())
