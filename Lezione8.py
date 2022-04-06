@@ -16,14 +16,16 @@ class IncrementModel(Model):
         if len(data)<2:
             raise Exception('Errore: devo avere almeno 2 valori per fare una differenza, invece ne ho solo {}'.format(len(data)))
         Num=0
-        Den=-1
+        Den=0
+        i=-1
         #Logica per la predizione
         for item in data:
-            if item==0:
+            i=i+1
+            if i==0:
                 Num=Num
                 Den=Den
             else:
-                Num=Num+(data[item]-data[item-1])
+                Num=Num+(data[i]-data[i-1])
                 Den=Den+1
                 
         prediction=data[-1]+Num/Den
