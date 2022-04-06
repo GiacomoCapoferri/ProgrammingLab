@@ -1,5 +1,3 @@
-lista=[50, 52, 60]
-
 class Model():
 
     def fit(self, data):
@@ -31,5 +29,9 @@ class IncrementModel(Model):
         prediction=data[-1]+Num/Den #calcolo il valore di predizione
         return prediction
 
+#-------fin qui ho creato il modello-----#
+
+#-------ora gli do in pasto una lista e vedo se funziona-----#
+lista=[50, 52, 60]
 modello=IncrementModel()
 print(modello.predict(lista))
