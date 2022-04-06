@@ -15,20 +15,20 @@ class IncrementModel(Model):
     def predict(self, data):
         if len(data)<2:
             raise Exception('Errore: devo avere almeno 2 valori per fare una differenza, invece ne ho solo {}'.format(len(data)))
-        Num=0
-        Den=0
-        i=-1
+        #inizializzo Num e Den e indice i
+        Num=Den=0 #posso creare anche così più variabili che hanno stesso valore
+        i=-1 #parte da -1 così quando entro nel ciclo parto da i=0
         #Logica per la predizione
         for item in data:
             i=i+1
-            if i==0:
+            if i==0:  #se sto trattando il primo elemento della lista non faccio nulla
                 Num=Num
                 Den=Den
-            else:
-                Num=Num+(data[i]-data[i-1])
-                Den=Den+1
+            else:  #se tratto un qualsiasi altro elemento della lista
+                Num=Num+(data[i]-data[i-1]) #cumulo le differenze sulla variabile Num
+                Den=Den+1 #cumulo sul Den il numero di differenze analizzate
                 
-        prediction=data[-1]+Num/Den
+        prediction=data[-1]+Num/Den #calcolo il valore di predizione
         return prediction
 
 modello=IncrementModel()
